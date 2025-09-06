@@ -1,0 +1,1 @@
+   K = K - info[j].quan;
