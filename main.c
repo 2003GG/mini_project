@@ -5,6 +5,7 @@ int main()
 { 
     int x;
     int novq;
+    
 
     while (1){
         printf("\n********Bonjour a la libraire******\n");
@@ -36,7 +37,9 @@ int main()
             Supprimer();
             break;
         case 6:
-            AF_N();
+          printf("le nobre total des livres est : %d", Nombre_total());
+            
+              
            
             break;
         case 7:

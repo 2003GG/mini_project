@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-int i, n, j, count = 0, d, novq, K = 0;
+int i, n, j, count = 0, d, novq;
 char rech[20];
 
 typedef struct
@@ -32,7 +32,9 @@ void ajoute()
         scanf("%f", &info[i].prix);
         printf("Quantité en stock : ");
         scanf("%d", &info[i].quan);
+     
     }
+
 
     count = count + n;
 }
@@ -48,13 +50,14 @@ void affiche()
         for (i = 0; i < count; i++)
         {
             printf("-------------------------------------------------\n");
-            printf("Titre du livre de livre numero (%d): %s\n", i + 1, info[i].titre);
+            printf("********le livre numero (%d) *********\n",i+1);
+            printf("Titre du livre     : %s\n", info[i].titre);
 
-            printf("Auteur du livre de numero      (%d) : %s\n", i + 1, info[i].auteur);
+            printf("Auteur du livre    : %s\n",info[i].auteur);
 
-            printf("Prix du livre de numero        (%d): %.2f\n", i + 1, info[i].prix);
+            printf("Prix du livre      : %.2f\n", info[i].prix);
 
-            printf("Quantité en stock de numero    (%d) : %d\n", i + 1, info[i].quan);
+            printf("Quantité en stock  : %d\n", info[i].quan);
         }
     }
 }
@@ -73,23 +76,22 @@ void Mettre_a_Jour()
         for (i = 0; i < count; i++)
         {
             printf("-------------------------------------------------\n");
-            printf("Titre du livre de livre de numero (%d) : %s\n", i + 1, info[i].titre);
+             printf("********le livre numero (%d) *********\n",i+1);
+            printf("Titre du livre      :  %s\n",  info[i].titre);
 
-            printf("Auteur du livre de numero         (%d) : %s\n", i + 1, info[i].auteur);
-
-            printf("Prix du livre de numero           (%d) : %.2f\n", i + 1, info[i].prix);
-
-            printf("Quantité en stock de numero       (%d) : %d\n", i + 1, info[i].quan);
+            
         }
-        printf("choise le numero de livre : ");
-        scanf("%d", &d);
-        printf("entrez la novelle quantite : ");
-        scanf("%d", &novq);
-
-        for (i = 0; i < count; i++)
+        printf("choise le titre de livre : ");
+        scanf(" %[^\n]s", tit);
+        for ( i = 0; i < count; i++)
         {
-            info[d - 1].quan = novq;
+        if(strcasecmp(info[i].titre,tit)==0){
+        printf("entrez la novelle quantite : ");
+        scanf("%d", &info[i].quan);
         }
+    }
+       
+       
 
         printf("le quantite est mise a joure \n");
     }
@@ -118,15 +120,14 @@ void Supprimer()
 
         for (i = 0; i < count - 1; i++)
         {
-            if (strcmp(info[i].titre, tis) == 0)
+            if (strcasecmp(info[i].titre, tis) == 0)
             {
                 printf("Le livre de nom (%s) est disponible dans la libraire\n", tis);
                 for (j = i + 1; j < count; j++)
                 {
                     info[i] = info[j];
-                    K = K - info[j].quan;
+               
                 }
-
                 count--;
                 printf("Le livre intitulé (%s) a été supprimé du stock.\n", tis);
                 break;
@@ -148,29 +149,30 @@ void Recherch()
     scanf(" %[^\n]s", rech);
     for (i = 0; i < count; i++)
     {
-        if (strcascmp(info[i].titre, rech) == 0)
+        if (strcasecmp(info[i].titre, rech) == 0)
         {
             printf("Le livre de nom (%s) est disponible dans la libraire\n", rech);
             printf("*****les informations de livre*****\n");
             printf("-------------------------------------------------\n");
             printf("Titre du livre de livre de numero (%d) : %s\n", i + 1, rech);
 
-            printf("Auteur du livre de numero         (%d) : %s\n", i + 1, info[i].auteur);
+            printf("Auteur du livre  : %s\n", info[i].auteur);
 
-            printf("Prix du livre de numero           (%d) : %.2f\n", i + 1, info[i].prix);
+            printf("Prix du livre      : %.2f\n",  info[i].prix);
 
-            printf("Quantité en stock de numero       (%d) : %d\n", i + 1, info[i].quan);
+            printf("Quantité en stock : %d\n",  info[i].quan);
             printf("-------------------------------------------------\n");
         }
     }
 }
-int AF_N()
+int Nombre_total()
 {
-    for (i = 0; i < count; i++)
-    {
-        K = K + info[i].quan;
-    }
+   
+   int total=0;
+   for(i=0;i<count;i++){
+    total=total+info[i].quan;
+   }
 
-    printf("\ntotal des livres est : %d", K);
-    return K;
+   
+    return total;
 }
