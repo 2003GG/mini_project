@@ -173,11 +173,11 @@ void Recherch()
         if (strcasecmp(info[mid].isbn, NISBN) == 0)
         {
 
-            printf("le ISBN (%s)est  existe a la position %d\n", info[mid].isbn, mid);
+            printf("le ISBN (%s)est  existe a la position %d\n", info[mid].isbn, mid+1);
             printf("-------------------------------------------------------\n");
             printf("le titre de livre : %s\n", info[i].titre);
             printf("l'auteur : %s\n", info[mid].auteur);
-            printf("le prix : %.2f\n");
+            printf("le prix : %.2f\n",info[mid].prix);
             printf("Quantite : %d\n", info[mid].quan);
             printf("ISBN : %s\n", info[mid].isbn);
             pos = 1;
