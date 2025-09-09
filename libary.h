@@ -8,3 +8,4 @@ int Mettre_a_Jour();
 void Supprimer();
 void Recherch();
 int Nombre_total();
+void tri(int o);

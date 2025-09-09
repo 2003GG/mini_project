@@ -5,6 +5,7 @@ int main()
 { 
     int x;
     int novq;
+    int o;
     
 
     while (1){
@@ -15,7 +16,8 @@ int main()
         printf("4.   Mettre à jour la quantité d'un livre.\n");
         printf("5.   Supprimer un livre du stock.\n");
         printf("6.   Afficher le nombre total de livres en stock.\n");
-        printf("7.   sortie\n");
+        printf("7    le tri \n");
+        printf("8.   sortie\n");
         printf("------------------------------------------\n");
         printf("   choise le number de service : ");
         scanf("%d", &x);
@@ -28,6 +30,7 @@ int main()
             affiche();
             break;
         case 3:
+            
             Recherch();
             break;
         case 4:
@@ -38,11 +41,14 @@ int main()
             break;
         case 6:
           printf("le nobre total des livres est : %d", Nombre_total());
-            
-              
-           
+       
             break;
-        case 7:
+         case 7:
+            tri(o);
+
+            break;
+            
+        case 8:
             return 0;
             break;
 
