@@ -112,13 +112,13 @@ void Supprimer()
         for (i = 0; i < count; i++)
         {
             printf("-------------------------------------------------\n");
-            printf("Titre du livre numero (%d): %s\n", i + 1, info[i].titre);
+            printf("Titre du livre numero : %s\n", info[i].titre);
         }
 
         printf("Choisissez le titre du livre que vous souhaitez supprimer : ");
-        scanf(" %[^\n]", tis);
+        scanf(" %[^\n]s", tis);
 
-        for (i = 0; i < count - 1; i++)
+        for (i = 0; i < count ; i++)
         {
             if (strcasecmp(info[i].titre, tis) == 0)
             {
@@ -242,6 +242,7 @@ void tri(int o)
         break;
     case 2:
         // decroissatn
+
         for (i = 0; i < count - 1; i++)
         {
             for (j = i + 1; j < count; j++)
